@@ -71,5 +71,3 @@ tableau/
 | Institute | Newton School of Technology |
 | Submission Date | April 28, 2026 |
 
-# dva-cap-stone-project-
-# velocity-Vortex-dva-cap-stone

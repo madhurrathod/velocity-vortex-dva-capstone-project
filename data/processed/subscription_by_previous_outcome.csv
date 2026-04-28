@@ -1,0 +1,4 @@
+poutcome,clients,subscribers,subscription_rate_pct,avg_duration_seconds
+success,1373,894,65.11,320.94
+failure,4252,605,14.23,248.11
+nonexistent,35563,3141,8.83,257.08

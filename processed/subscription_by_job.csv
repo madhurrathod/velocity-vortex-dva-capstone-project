@@ -1,0 +1,13 @@
+job,clients,subscribers,subscription_rate_pct,avg_duration_seconds
+student,875,275,31.43,283.68
+retired,1720,434,25.23,273.71
+unemployed,1014,144,14.2,249.45
+admin.,10422,1352,12.97,254.31
+management,2924,328,11.22,257.06
+,330,37,11.21,239.68
+technician,6743,730,10.83,250.23
+self-employed,1421,149,10.49,264.14
+housemaid,1060,106,10.0,250.45
+entrepreneur,1456,124,8.52,263.27
+services,3969,323,8.14,258.4
+blue-collar,9254,638,6.89,264.54

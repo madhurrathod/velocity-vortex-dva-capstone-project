@@ -64,5 +64,14 @@ tableau/
 - Update `tableau/dashboard_links.md` after publishing the dashboard on Tableau Public.
 - The original capstone brief you shared mentions 5 members, while your team has 4. Confirm that with the mentor to avoid submission risk.
 
+
+##Project Overview
+| Field | Details |
+| --- | --- |
+| Project Title | Improving Bank Telemarketing Conversion Through Customer and Campaign Analytics |
+| Sector | Finance |
+| Institute | Newton School of Technology |
+| Submission Date | April 28, 2026 |
+
 # dva-cap-stone-project-
 # velocity-Vortex-dva-cap-stone

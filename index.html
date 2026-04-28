@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NST DVA Capstone 2 Overview</title>
+    <style>
+      :root {
+        --bg: #f6f1e8;
+        --paper: #fffaf2;
+        --ink: #1b1a17;
+        --muted: #5f5a52;
+        --line: #d8cdbd;
+        --accent: #0f6b5b;
+        --accent-2: #bf5b2c;
+        --accent-3: #ead9b8;
+        --shadow: 0 18px 40px rgba(46, 34, 20, 0.12);
+        --radius: 22px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: Georgia, "Times New Roman", serif;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at top left, rgba(191, 91, 44, 0.12), transparent 30%),
+          radial-gradient(circle at top right, rgba(15, 107, 91, 0.1), transparent 28%),
+          linear-gradient(180deg, #f9f4ec 0%, var(--bg) 100%);
+      }
+
+      a {
+        color: var(--accent);
+      }
+
+      .shell {
+        width: min(1180px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 24px 0 48px;
+      }
+
+      .hero {
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(135deg, rgba(255, 250, 242, 0.98), rgba(234, 217, 184, 0.88));
+        border: 1px solid rgba(96, 79, 52, 0.12);
+        border-radius: 32px;
+        box-shadow: var(--shadow);
+        padding: 28px;
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: auto -80px -80px auto;
+        width: 240px;
+        height: 240px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(15, 107, 91, 0.18), transparent 65%);
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: rgba(15, 107, 91, 0.08);
+        color: var(--accent);
+        font-size: 0.88rem;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      h3 {
+        margin: 0;
+        line-height: 1.05;
+        font-weight: 700;
+      }
+
+      h1 {
+        margin-top: 18px;
+        font-size: clamp(2.6rem, 5vw, 5.3rem);
+        max-width: 10ch;
+      }
+
+      .hero p {
+        max-width: 66ch;
+        font-size: 1.08rem;
+        line-height: 1.7;
+        color: var(--muted);
+      }
+
+      .hero-grid,
+      .grid,
+      .cards {
+        display: grid;
+        gap: 18px;
+      }
+
+      .hero-grid {
+        margin-top: 28px;
+        grid-template-columns: 1.4fr 0.9fr;
+      }
+
+      .panel,
+      .card {
+        background: rgba(255, 250, 242, 0.82);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        padding: 22px;
+      }
+
+      .panel strong,
+      .card strong {
+        color: var(--ink);
+      }
+
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .stat {
+        padding: 16px;
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.72);
+        border: 1px solid rgba(96, 79, 52, 0.1);
+      }
+
+      .stat span {
+        display: block;
+      }
+
+      .stat .value {
+        font-size: 1.9rem;
+        font-weight: 700;
+      }
+
+      .stat .label {
+        margin-top: 6px;
+        color: var(--muted);
+      }
+
+      .quote {
+        margin-top: 16px;
+        padding: 18px;
+        border-left: 4px solid var(--accent-2);
+        background: rgba(191, 91, 44, 0.06);
+        border-radius: 16px;
+        font-style: italic;
+      }
+
+      nav {
+        position: sticky;
+        top: 12px;
+        z-index: 5;
+        margin: 18px 0 24px;
+        backdrop-filter: blur(12px);
+      }
+
+      .nav-wrap {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 12px;
+        border: 1px solid rgba(96, 79, 52, 0.12);
+        border-radius: 999px;
+        background: rgba(255, 250, 242, 0.8);
+        box-shadow: 0 8px 28px rgba(46, 34, 20, 0.08);
+      }
+
+      .nav-wrap a {
+        text-decoration: none;
+        color: var(--ink);
+        padding: 8px 12px;
+        border-radius: 999px;
+      }
+
+      .nav-wrap a:hover {
+        background: rgba(15, 107, 91, 0.08);
+      }
+
+      section {
+        margin-top: 26px;
+      }
+
+      .section-head {
+        margin-bottom: 14px;
+      }
+
+      .section-head p {
+        margin: 10px 0 0;
+        color: var(--muted);
+        line-height: 1.7;
+        max-width: 72ch;
+      }
+
+      .grid {
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+      }
+
+      .span-4 {
+        grid-column: span 4;
+      }
+
+      .span-6 {
+        grid-column: span 6;
+      }
+
+      .span-8 {
+        grid-column: span 8;
+      }
+
+      .span-12 {
+        grid-column: span 12;
+      }
+
+      .card h3 {
+        font-size: 1.35rem;
+        margin-bottom: 12px;
+      }
+
+      .card p,
+      .card li,
+      .timeline p {
+        line-height: 1.65;
+        color: var(--muted);
+      }
+
+      ul {
+        margin: 0;
+        padding-left: 18px;
+      }
+
+      .timeline {
+        display: grid;
+        gap: 14px;
+      }
+
+      .timeline-item {
+        padding: 18px;
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.7);
+        border: 1px solid var(--line);
+      }
+
+      .timeline-item .day {
+        display: inline-block;
+        margin-bottom: 8px;
+        padding: 5px 10px;
+        border-radius: 999px;
+        background: rgba(15, 107, 91, 0.1);
+        color: var(--accent);
+        font-size: 0.82rem;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      .alert {
+        background: linear-gradient(135deg, rgba(191, 91, 44, 0.09), rgba(255, 250, 242, 0.95));
+        border: 1px solid rgba(191, 91, 44, 0.2);
+      }
+
+      .checklist li + li,
+      .links li + li {
+        margin-top: 8px;
+      }
+
+      .rubric {
+        display: grid;
+        gap: 12px;
+      }
+
+      .rubric-row {
+        display: grid;
+        grid-template-columns: 1.2fr 90px 1.6fr;
+        gap: 14px;
+        padding: 16px;
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.72);
+        border: 1px solid var(--line);
+      }
+
+      .rubric-row strong:last-child {
+        color: var(--accent-2);
+      }
+
+      footer {
+        margin-top: 28px;
+        padding: 22px;
+        border-radius: 24px;
+        background: #1f312d;
+        color: rgba(255, 250, 242, 0.92);
+      }
+
+      footer p {
+        margin: 0;
+        line-height: 1.7;
+      }
+
+      @media (max-width: 960px) {
+        .hero-grid,
+        .rubric-row {
+          grid-template-columns: 1fr;
+        }
+
+        .span-4,
+        .span-6,
+        .span-8,
+        .span-12 {
+          grid-column: span 12;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .shell {
+          width: min(100% - 20px, 1180px);
+          padding-top: 10px;
+        }
+
+        .hero,
+        .panel,
+        .card,
+        footer {
+          padding: 18px;
+        }
+
+        h1 {
+          font-size: 2.5rem;
+        }
+
+        .stats {
+          grid-template-columns: 1fr;
+        }
+
+        .nav-wrap {
+          border-radius: 22px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="shell">
+      <header class="hero" id="top">
+        <span class="eyebrow">Newton School of Technology • DVA Capstone 2</span>
+        <h1>Program Overview</h1>
+        <p>
+          Capstone 2 is an industry-style data analytics simulation where teams work end to end:
+          raw dataset sourcing, Python ETL, exploratory and statistical analysis, Tableau
+          dashboarding, and business recommendations that lead to decisions rather than just charts.
+        </p>
+
+        <div class="hero-grid">
+          <div class="panel">
+            <h2>What matters most</h2>
+            <p>
+              This capstone rewards analytical thinking, reproducibility, and decision-oriented
+              storytelling. Tools support the work, but marks come from problem framing, sound
+              methodology, and practical recommendations backed by evidence.
+            </p>
+            <div class="quote">
+              “Tools don’t get you marks. Thinking gets you marks. Dashboards don’t get you
+              marks. Decisions get you marks.”
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="stats">
+              <div class="stat">
+                <span class="value">5</span>
+                <span class="label">Students per team</span>
+              </div>
+              <div class="stat">
+                <span class="value">100</span>
+                <span class="label">Total marks</span>
+              </div>
+              <div class="stat">
+                <span class="value">2</span>
+                <span class="label">Required backup datasets</span>
+              </div>
+              <div class="stat">
+                <span class="value">Apr 28, 2026</span>
+                <span class="label">Phase 2 deadline shown in the orientation page</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <nav aria-label="Page sections">
+        <div class="nav-wrap">
+          <a href="#overview">Overview</a>
+          <a href="#timeline">Timeline</a>
+          <a href="#workflow">Workflow</a>
+          <a href="#datasets">Datasets</a>
+          <a href="#submission">Submission</a>
+          <a href="#rubric">Rubric</a>
+          <a href="#resources">Resources</a>
+        </div>
+      </nav>
+
+      <section id="overview">
+        <div class="section-head">
+          <h2>Overview</h2>
+          <p>
+            Each team selects a sector and business problem, builds the Python workflow, prepares an
+            analysis-ready dataset, develops a Tableau Public dashboard, and submits a final report,
+            presentation, and GitHub repository with visible contribution history.
+          </p>
+        </div>
+
+        <div class="grid">
+          <article class="card span-4">
+            <h3>Team Structure</h3>
+            <ul>
+              <li>Team size is fixed at 5 members.</li>
+              <li>Teams are student-formed for balanced work allocation.</li>
+              <li>No swapping is permitted after formation.</li>
+            </ul>
+          </article>
+
+          <article class="card span-4">
+            <h3>Primary Objective</h3>
+            <ul>
+              <li>Demonstrate full ETL capability using Python.</li>
+              <li>Show strong EDA and statistical depth.</li>
+              <li>Deliver insights and recommendations for decisions.</li>
+            </ul>
+          </article>
+
+          <article class="card span-4">
+            <h3>Core Tools</h3>
+            <ul>
+              <li>Python for extraction, cleaning, analysis, and KPI prep.</li>
+              <li>Tableau Public for interactive dashboards and storytelling.</li>
+              <li>GitHub for version control, PR workflow, and contribution audit.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="timeline">
+        <div class="section-head">
+          <h2>Execution Schedule</h2>
+          <p>
+            The brief describes a 10-day working schedule across two weeks, while the orientation
+            page presents the overall capstone window from April 13, 2026 to April 28, 2026. Treat
+            the day-by-day plan as the operational checklist.
+          </p>
+        </div>
+
+        <div class="grid">
+          <article class="card span-8">
+            <div class="timeline">
+              <div class="timeline-item">
+                <span class="day">Days 1-2</span>
+                <h3>Discovery and Setup</h3>
+                <p>
+                  Meet the team, assign roles, choose the sector, identify the problem statement,
+                  create the GitHub repository, and prepare the required folder structure.
+                </p>
+              </div>
+
+              <div class="timeline-item">
+                <span class="day">Day 3</span>
+                <h3>Gate 1 Approval</h3>
+                <p>
+                  Submit the problem statement, dataset link, and initial data dictionary. Do not
+                  proceed to deep analysis until the mentor approves the primary dataset.
+                </p>
+              </div>
+
+              <div class="timeline-item">
+                <span class="day">Days 4-5</span>
+                <h3>ETL and Cleaning</h3>
+                <p>
+                  Commit the raw file into <code>data/raw/</code>, build the cleaning flow in
+                  <code>notebooks/02_cleaning.ipynb</code>, and save the cleaned output in
+                  <code>data/processed/</code>.
+                </p>
+              </div>
+
+              <div class="timeline-item">
+                <span class="day">Days 6-7</span>
+                <h3>EDA and Statistical Analysis</h3>
+                <p>
+                  Run EDA in <code>03_eda.ipynb</code>, statistical work in
+                  <code>04_statistical_analysis.ipynb</code>, and KPI prep in
+                  <code>05_final_load_prep.ipynb</code>.
+                </p>
+              </div>
+
+              <div class="timeline-item">
+                <span class="day">Days 8-9</span>
+                <h3>Dashboard Build</h3>
+                <p>
+                  Design a Tableau Public dashboard with interactive filters that answers the chosen
+                  business problem directly.
+                </p>
+              </div>
+
+              <div class="timeline-item">
+                <span class="day">Day 10</span>
+                <h3>Final Submission</h3>
+                <p>
+                  Finalize the report, deck, recommendations, dashboard links, screenshots, and all
+                  GitHub assets before the deadline.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <aside class="card span-4 alert">
+            <h3>Important Mismatch</h3>
+            <p>
+              The copied materials conflict on the minimum dataset size:
+              <strong>5,000 rows</strong> in the detailed brief versus
+              <strong>10,000 rows</strong> in the orientation page.
+            </p>
+            <p>
+              Safest interpretation: choose a dataset with <strong>10,000+ rows</strong> and at
+              least <strong>8 meaningful columns</strong> unless the mentor explicitly confirms the
+              lower threshold.
+            </p>
+          </aside>
+        </div>
+      </section>
+
+      <section id="workflow">
+        <div class="section-head">
+          <h2>Project Workflow</h2>
+          <p>
+            The work should read like one coherent story across the repo, notebooks, dashboard, and
+            report.
+          </p>
+        </div>
+
+        <div class="grid">
+          <article class="card span-4">
+            <h3>1. Define the Problem</h3>
+            <p>
+              Select the sector, define the business question, and make sure the scope can lead to
+              measurable KPIs and clear recommendations.
+            </p>
+          </article>
+
+          <article class="card span-4">
+            <h3>2. Prepare the Data</h3>
+            <p>
+              Load, inspect, clean, standardize, and document every transformation in Python. Never
+              overwrite the original raw file.
+            </p>
+          </article>
+
+          <article class="card span-4">
+            <h3>3. Analyze the Data</h3>
+            <p>
+              Go beyond counts and averages. Use trends, distributions, outlier checks, correlation,
+              regression, hypothesis tests, or segmentation when relevant.
+            </p>
+          </article>
+
+          <article class="card span-4">
+            <h3>4. Build the Dashboard</h3>
+            <p>
+              Use Tableau Public for an interactive, decision-focused dashboard. Avoid decorative
+              dashboards that do not answer the core question.
+            </p>
+          </article>
+
+          <article class="card span-4">
+            <h3>5. Write Recommendations</h3>
+            <p>
+              Turn findings into practical actions with business impact, limitations, and future
+              scope instead of just chart descriptions.
+            </p>
+          </article>
+
+          <article class="card span-4">
+            <h3>6. Submit and Defend</h3>
+            <p>
+              Package the repo, report, screenshots, dashboard link, and presentation so every team
+              member can explain the data, methodology, KPIs, and recommendations in viva.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="datasets">
+        <div class="section-head">
+          <h2>Dataset Rules</h2>
+          <p>
+            The chosen data must be raw enough to require meaningful cleaning and robust enough to
+            support analysis, KPI design, and Tableau visualization.
+          </p>
+        </div>
+
+        <div class="grid">
+          <article class="card span-6">
+            <h3>Minimum Standards</h3>
+            <ul>
+              <li>At least 8 meaningful analytical columns.</li>
+              <li>Tabular, row-level records.</li>
+              <li>Missing values, inconsistent formats, or category issues should be present.</li>
+              <li>No pre-cleaned or competition-ready files.</li>
+              <li>Prepare one primary dataset and two backups from the same sector.</li>
+            </ul>
+          </article>
+
+          <article class="card span-6">
+            <h3>Kaggle Rules</h3>
+            <ul>
+              <li>Use raw or minimally processed datasets only.</li>
+              <li>Avoid files with pre-built dashboards or engineered features.</li>
+              <li>Prefer searches like <code>raw</code>, <code>original</code>, <code>logs</code>, <code>records</code>, or <code>events</code>.</li>
+              <li>Mentors may reject datasets that are already analysis-ready.</li>
+            </ul>
+          </article>
+
+          <article class="card span-12">
+            <h3>Approved Dataset Sources</h3>
+            <ul class="links">
+              <li><a href="https://datasetsearch.research.google.com/" target="_blank" rel="noreferrer">Google Dataset Search</a></li>
+              <li><a href="https://www.kaggle.com/datasets" target="_blank" rel="noreferrer">Kaggle Datasets</a></li>
+              <li><a href="https://data.gov.in/" target="_blank" rel="noreferrer">Data.gov.in</a></li>
+              <li><a href="https://dataverse.harvard.edu/" target="_blank" rel="noreferrer">Harvard Dataverse</a></li>
+              <li><a href="https://microdata.worldbank.org/" target="_blank" rel="noreferrer">World Bank Microdata</a></li>
+              <li><a href="https://archive.ics.uci.edu/" target="_blank" rel="noreferrer">UCI Machine Learning Repository</a></li>
+              <li><a href="https://data.world/" target="_blank" rel="noreferrer">data.world</a></li>
+              <li><a href="https://datahub.io/" target="_blank" rel="noreferrer">DataHub</a></li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="submission">
+        <div class="section-head">
+          <h2>Submission Checklist</h2>
+          <p>
+            Every final asset should support the same narrative: problem, cleaned data, analysis,
+            dashboard, recommendations, and proof of contribution.
+          </p>
+        </div>
+
+        <div class="grid">
+          <article class="card span-4">
+            <h3>GitHub Repository</h3>
+            <ul class="checklist">
+              <li>Public repo with the correct naming convention.</li>
+              <li>All notebooks committed in <code>.ipynb</code> format.</li>
+              <li><code>data/raw/</code> contains the original dataset.</li>
+              <li><code>data/processed/</code> contains the cleaned output.</li>
+              <li><code>docs/data_dictionary.md</code> is complete.</li>
+              <li><code>README.md</code> explains the project, dataset, and team.</li>
+              <li>All members have visible commits and PRs.</li>
+            </ul>
+          </article>
+
+          <article class="card span-4">
+            <h3>Tableau Dashboard</h3>
+            <ul class="checklist">
+              <li>Published on Tableau Public.</li>
+              <li>Includes at least one interactive filter.</li>
+              <li>Directly addresses the business problem.</li>
+              <li>URL shared in <code>tableau/dashboard_links.md</code>.</li>
+              <li>Screenshots committed in <code>tableau/screenshots/</code>.</li>
+            </ul>
+          </article>
+
+          <article class="card span-4">
+            <h3>Report and Deck</h3>
+            <ul class="checklist">
+              <li>Project report PDF of roughly 10 to 15 pages.</li>
+              <li>Executive summary, methodology, analysis, and dashboard sections.</li>
+              <li>8 to 12 key insights in decision language.</li>
+              <li>3 to 5 actionable business recommendations.</li>
+              <li>Contribution matrix aligned with GitHub history.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="rubric">
+        <div class="section-head">
+          <h2>Evaluation Rubric</h2>
+          <p>
+            Reviewers are looking for clarity, depth, coherence, and recommendation quality rather
+            than slide count or dashboard decoration.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="rubric">
+            <div class="rubric-row">
+              <strong>Problem Framing</strong>
+              <strong>10</strong>
+              <span>Is the business question clear, relevant, and well-scoped?</span>
+            </div>
+            <div class="rubric-row">
+              <strong>Data Quality &amp; ETL</strong>
+              <strong>15</strong>
+              <span>Is the Python pipeline thorough, documented, and reproducible?</span>
+            </div>
+            <div class="rubric-row">
+              <strong>Analysis Depth</strong>
+              <strong>25</strong>
+              <span>Are statistical methods used correctly and turned into real insight?</span>
+            </div>
+            <div class="rubric-row">
+              <strong>Dashboard &amp; Visualization</strong>
+              <strong>20</strong>
+              <span>Is the Tableau dashboard interactive and decision-relevant?</span>
+            </div>
+            <div class="rubric-row">
+              <strong>Business Recommendations</strong>
+              <strong>20</strong>
+              <span>Are the actions practical, specific, and well-reasoned?</span>
+            </div>
+            <div class="rubric-row">
+              <strong>Storytelling &amp; Clarity</strong>
+              <strong>10</strong>
+              <span>Is the report and presentation professional, coherent, and easy to follow?</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="resources">
+        <div class="section-head">
+          <h2>Official Links and References</h2>
+          <p>
+            These are the links included in your notes. Keep them together so the page works as a
+            practical orientation hub.
+          </p>
+        </div>
+
+        <div class="grid">
+          <article class="card span-6">
+            <h3>Reference Links</h3>
+            <ul class="links">
+              <li><a href="https://docs.google.com/document/d/1-1TUNkeGw0X3C3nQ6wVi18i1oQnpDgjSK6dmignS-Nw/edit?tab=t.0" target="_blank" rel="noreferrer">Capstone document</a></li>
+              <li><a href="https://drive.google.com/file/d/1AfJfNbIB3zXc2yms3GrROpFx1oIAZotR/view" target="_blank" rel="noreferrer">Handbook or reference file</a></li>
+              <li><a href="https://github.com/arcofiero/nst-dva-capstone-2-project-template.git" target="_blank" rel="noreferrer">Official GitHub template</a></li>
+            </ul>
+          </article>
+
+          <article class="card span-6">
+            <h3>High-Scoring Habits</h3>
+            <ul>
+              <li>Choose a tight business problem, not a vague topic.</li>
+              <li>Keep the ETL pipeline transparent and reproducible.</li>
+              <li>Write insights in decision language, not chart narration.</li>
+              <li>Ensure every team member has visible GitHub contributions.</li>
+              <li>Keep the dashboard, report, and repo aligned to one story.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <footer>
+        <p>
+          This page is a structured orientation layer built from the material you shared. Where the
+          source content conflicts, the safest interpretation is highlighted so teams can avoid
+          losing time or marks.
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>

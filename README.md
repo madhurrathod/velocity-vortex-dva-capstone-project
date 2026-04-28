@@ -34,8 +34,6 @@ A Portuguese banking institution runs direct marketing campaigns to promote term
 | Ambuj Vashistha | Analyst | EDA, hypothesis testing, KPI analysis |
 | Himanshu Gulhane | BI and Storytelling Lead | Tableau dashboard, report, presentation |
 
-Replace these placeholders with real names before submission.
-
 ## Repository Structure
 
 ```text

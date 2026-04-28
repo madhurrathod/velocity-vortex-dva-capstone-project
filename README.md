@@ -27,12 +27,12 @@ A Portuguese banking institution runs direct marketing campaigns to promote term
 
 ## Team Structure
 
-| Member | Suggested Role | Suggested Ownership |
+| Member |  Role |Ownership |
 | --- | --- | --- |
-| Madhur Rathod | Project Lead | repo coordination, QA, final integration |
+| Madhur Rathod | Project Lead | repo coordination, QA, final integration,Tableau dashboard |
 | Aaditya Mohan Samadhiya | Data Engineer | extraction, cleaning, processed outputs |
 | Ambuj Vashistha | Analyst | EDA, hypothesis testing, KPI analysis |
-| Himanshu Gulhane | BI and Storytelling Lead | Tableau dashboard, report, presentation |
+| Himanshu Gulhane | Storytelling Lead | Tableau dashboard, Project Report, Presentation |
 
 Replace these placeholders with real names before submission.
 

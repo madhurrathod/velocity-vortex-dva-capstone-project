@@ -12,6 +12,13 @@ Finance
 
 A Portuguese banking institution runs direct marketing campaigns to promote term deposits. The core business problem is to identify which customer segments, contact patterns, and campaign conditions are associated with higher subscription rates so the bank can improve conversion efficiency and reduce wasted outreach effort.
 
+## Dashboard Overview
+<p align="center">
+  <img src="./Demo Screenshots/Dashboard.png" width="200"/>
+  <img src="./Demo Screenshots/Working Filters.png" width="200"/>
+  <img src="./Demo Screenshots/Subscription rate by month.png" width="200"/>
+</p>
+
 ## Dataset
 
 - Primary dataset: UCI Bank Marketing, `bank-additional-full.csv`

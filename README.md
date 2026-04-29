@@ -16,6 +16,7 @@ A Portuguese banking institution runs direct marketing campaigns to promote term
 <p align="center">
   <img src="./Demo Screenshots/Dashboard.png" width="90%"/>
 </p>
+Dashboard has working filters of Poutcome, Job, Age Group and Contact.
 
 ## Dataset
 

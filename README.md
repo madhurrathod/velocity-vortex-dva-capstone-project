@@ -15,8 +15,7 @@ A Portuguese banking institution runs direct marketing campaigns to promote term
 ## Dashboard Overview
 <p align="center">
   <img src="./Demo Screenshots/Dashboard.png" width="200"/>
-  <img src="./Demo Screenshots/Working Filters.png" width="200"/>
-  <img src="./Demo Screenshots/Subscription rate by month.png" width="200"/>
+  <img src="./Demo Screenshots/filters.png.png" width="200"/>
 </p>
 
 ## Dataset
